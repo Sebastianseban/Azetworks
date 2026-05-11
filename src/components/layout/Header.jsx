@@ -1,27 +1,28 @@
+import Link from "next/link";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Solutions", href: "/Solutions" },
+  { label: "About", href: "/about" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact Us", href: "/contact" },
+];
+
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 border-b border-[#47464a]/10 bg-[#0E0E10]">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-8 py-6">
-        <div className="text-[32px] font-bold tracking-tight">
-          AZETWORKS
-        </div>
+        <div className="text-[32px] font-bold tracking-tight">AZETWORKS</div>
 
         <nav className="hidden md:flex items-center gap-8">
-          {[
-            "Home",
-            "Solutions",
-            "About",
-            "Partners",
-            "Blog",
-            "Contact Us",
-          ].map((item) => (
-            <a
-              key={item}
-              href="#"
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
               className="uppercase tracking-[0.2em] text-sm text-[#c8c5ca] hover:text-white transition-colors"
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </nav>
 
