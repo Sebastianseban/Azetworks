@@ -1,52 +1,65 @@
+import { FiTarget, FiCloud, FiCpu } from "react-icons/fi";
+
 const pillars = [
   {
-    id: "AZ-PILLAR-01",
+    icon: FiTarget,
     title: "Outcome-Based",
     desc: "We price on results, not hours. Our success is tied directly to yours.",
   },
   {
-    id: "AZ-PILLAR-02",
+    icon: FiCloud,
     title: "Cloud Agnostic",
-    desc: "AWS, Azure, GCP, OCI — we recommend what's right for you.",
+    desc: "AWS, Azure, GCP, OCI — we recommend what's right for you, not what's convenient for us.",
   },
   {
-    id: "AZ-PILLAR-03",
+    icon: FiCpu,
     title: "AI-First Delivery",
-    desc: "Every engagement is accelerated by proprietary AI tools.",
+    desc: "Every engagement is accelerated by our proprietary agentic AI tools.",
   },
 ];
 
 export default function MissionSection() {
   return (
-    <section className="px-16 py-[160px] max-w-[1440px] mx-auto">
-      <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-12 md:col-span-4 mb-12 md:mb-0">
-          <h2 className="text-[64px] leading-[1.1] font-semibold text-white">
+    <section className="px-4 sm:px-8 lg:px-16 py-[80px] lg:py-[160px] max-w-[1440px] mx-auto">
+      <div className="grid grid-cols-12 gap-6 md:gap-8">
+        <div className="col-span-12 lg:col-span-5 mb-8 md:mb-12 lg:mb-0">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-4 md:mb-6 block">
+            Our Mission
+          </span>
+          <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.1] font-semibold text-white mb-6 md:mb-8">
             Transforming Business Through Technology
           </h2>
+          <div className="space-y-4 md:space-y-6 text-[14px] md:text-[16px] text-[#F5F5F399] leading-[1.6]">
+            <p>
+              Azetworks helps businesses migrate and modernize to the cloud, enabling increased efficiency and scalability. We use AI-powered tools for consulting and project delivery, ensuring customized solutions that fit each customer's unique needs.
+            </p>
+            <p>
+              We offer outcome-based pricing and remain cloud and technology agnostic — always prioritizing your unique business challenges for optimal results.
+            </p>
+          </div>
         </div>
 
-        <div className="col-span-12 md:col-start-6 md:col-span-7">
-          <div className="space-y-16">
+        <div className="col-span-12 lg:col-start-7 lg:col-span-6">
+          <div className="space-y-8 md:space-y-12 lg:space-y-16 lg:mt-16">
             {pillars.map((pillar, index) => (
               <div
-                key={pillar.id}
-                className={`flex flex-col md:flex-row gap-8 items-start pb-12 ${
+                key={pillar.title}
+                className={`flex flex-row gap-4 md:gap-8 items-start pb-8 md:pb-12 ${
                   index !== pillars.length - 1
                     ? "border-b border-white/10"
                     : ""
                 }`}
               >
-                <span className="text-xs uppercase tracking-[0.15em] text-[#3A6FF7] py-1">
-                  {pillar.id}
-                </span>
+                <div className="text-[24px] md:text-[32px] text-[#3A6FF7] mt-1">
+                  <pillar.icon />
+                </div>
 
                 <div>
-                  <h3 className="text-[32px] font-medium text-white mb-4">
+                  <h3 className="text-[20px] md:text-[24px] lg:text-[32px] font-medium text-white mb-2 md:mb-4">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-[#F5F5F399] leading-[1.7]">
+                  <p className="text-[14px] md:text-[16px] text-[#F5F5F399] leading-[1.7]">
                     {pillar.desc}
                   </p>
                 </div>

@@ -1,74 +1,68 @@
+const marketData = [
+  {
+    name: "Azetworks",
+    desc: "Combines deep technical expertise with AI-driven consulting and outcome-based models. Offers tailored solutions aligned with strategic business outcomes.",
+    highlight: true,
+  },
+  {
+    name: "Traditional Consulting Firms",
+    desc: "Focus on legacy approaches and broad business strategies, with limited adoption of AI and cloud modernization.",
+    highlight: false,
+  },
+  {
+    name: "AI-First Consulting Firms",
+    desc: "Emphasize AI integration but may lack robust technical depth and outcome-based frameworks.",
+    highlight: false,
+  },
+  {
+    name: "Cloud Specialists",
+    desc: "Expertise in cloud technologies, but often lack holistic consulting and strategic business alignment.",
+    highlight: false,
+  },
+];
+
 export default function MarketPositionSection() {
   return (
-    <section className="px-16 py-[160px] max-w-[1440px] mx-auto bg-[#0e0e0e]">
-      <div className="grid grid-cols-12 gap-8 mb-16">
+    <section className="px-4 sm:px-8 lg:px-16 py-[80px] lg:py-[160px] max-w-[1440px] mx-auto bg-[#0e0e0e]">
+      <div className="grid grid-cols-12 gap-4 md:gap-8 mb-12 md:mb-16">
         <div className="col-span-12">
-          <h2 className="text-[64px] leading-[1.1] font-semibold text-white mb-8">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-4 md:mb-6 block">
+            Market Position
+          </span>
+          <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.1] font-semibold text-white mb-8">
             Unique in the Consulting Market
           </h2>
         </div>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="border-b border-white/10">
-              {[
-                "Comparison Factor",
-                "Azetworks",
-                "Traditional Firms",
-                "AI-First Startups",
-              ].map((item, index) => (
-                <th
-                  key={item}
-                  className={`py-8 px-4 text-left text-xs uppercase tracking-[0.2em] ${
-                    index === 1 ? "text-[#3A6FF7]" : "text-[#F5F5F399]"
-                  }`}
-                >
-                  {item}
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr className="border-b border-white/10 hover:bg-[#201f1f] transition-colors">
-              <td className="py-10 px-4 text-white font-medium">
-                Pricing Model
-              </td>
-
-              <td className="py-10 px-4 text-[#3A6FF7]">
-                Outcome-based
-              </td>
-
-              <td className="py-10 px-4 text-[#F5F5F399]">
-                Billable hours
-              </td>
-
-              <td className="py-10 px-4 text-[#F5F5F399]">
-                SaaS Subscription
-              </td>
-            </tr>
-
-            <tr className="border-b border-white/10 hover:bg-[#201f1f] transition-colors">
-              <td className="py-10 px-4 text-white font-medium">
-                Delivery Method
-              </td>
-
-              <td className="py-10 px-4 text-[#3A6FF7]">
-                AI-accelerated engineering
-              </td>
-
-              <td className="py-10 px-4 text-[#F5F5F399]">
-                Offshore teams
-              </td>
-
-              <td className="py-10 px-4 text-[#F5F5F399]">
-                Tool-centric
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="flex flex-col">
+        {marketData.map((item, index) => (
+          <div
+            key={item.name}
+            className={`grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-12 border-b ${
+              item.highlight ? "border-[#3A6FF7]/30" : "border-white/10"
+            } ${index === 0 ? "border-t" : ""} hover:bg-[#1a1a1a] transition-colors group`}
+          >
+            <div className="md:col-span-4 flex items-center">
+              <h3
+                className={`text-[20px] md:text-[24px] lg:text-[32px] font-medium ${
+                  item.highlight ? "text-[#3A6FF7]" : "text-white"
+                }`}
+              >
+                {item.name}
+              </h3>
+            </div>
+            <div className="md:col-span-8 flex items-center">
+              <p
+                className={`text-[14px] md:text-[16px] lg:text-[18px] leading-[1.6] ${
+                  item.highlight ? "text-white" : "text-[#F5F5F399]"
+                }`}
+              >
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

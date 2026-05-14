@@ -6,7 +6,6 @@ import MissionSection from "@/components/about/MissionSection";
 import VisionSection from "@/components/about/VisionSection";
 import ValuesSection from "@/components/about/ValuesSection";
 import MarketPositionSection from "@/components/about/MarketPositionSection";
-import FeaturedImageSection from "@/components/about/FeaturedImageSection";
 import AboutCTA from "@/components/about/AboutCTA";
 
 export default function AboutPage() {
@@ -24,8 +23,6 @@ export default function AboutPage() {
         <ValuesSection />
 
         <MarketPositionSection />
-
-        <FeaturedImageSection />
 
         <AboutCTA />
       </main>
