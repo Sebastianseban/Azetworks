@@ -106,9 +106,15 @@ export default function HeroSection() {
             relative
             z-10
             flex
-            min-h-screen
+            min-h-[85vh]
+            md:min-h-[100vh]
             flex-col
-            justify-between
+            justify-center
+            md:justify-between
+            pt-32
+            md:pt-0
+            gap-16
+            md:gap-0
           "
         >
           {/* HERO CONTENT */}
@@ -117,19 +123,15 @@ export default function HeroSection() {
               mx-auto
               grid
               w-full
+              flex-1
               max-w-[1440px]
               grid-cols-12
               items-center
-              gap-y-12
               px-4
-              pt-20
-              pb-16
 
-              sm:px-6
-              sm:pt-24
+              sm:px-8
               md:h-full
               md:gap-2
-              md:px-8
               md:pt-20
               lg:px-10
               xl:px-16
@@ -141,8 +143,11 @@ export default function HeroSection() {
                 col-span-12
                 flex
                 flex-col
-                gap-8
+                gap-6
+                items-center text-center
 
+                md:text-left
+                md:items-start
                 md:gap-12
                 md:col-span-7
               "
@@ -157,8 +162,9 @@ export default function HeroSection() {
                   rounded-full
                   border
                   border-[#47464a]/30
+                  bg-[#0e0e10]/50
                   px-3
-                  py-1
+                  py-1.5
                 "
               >
                 <span
@@ -188,15 +194,15 @@ export default function HeroSection() {
               {/* HEADLINE */}
               <h1
                 className="
-                  max-w-[95%]
+                  max-w-[100%]
                   text-[36px]
                   font-semibold
-                  leading-[1]
+                  leading-[1.1]
                   tracking-[-0.02em]
                   text-[#F5F5F3]
 
-                  sm:max-w-[90%]
                   sm:text-[48px]
+                  sm:leading-[1]
                   sm:tracking-[-0.03em]
 
                   md:max-w-none
@@ -208,10 +214,8 @@ export default function HeroSection() {
                 "
               >
                 Empowering
-                <br />
-                Business
-                <br />
-                Transformation
+                <br className="hidden md:block" /> Business
+                <br className="hidden md:block" /> Transformation
               </h1>
             </div>
 
@@ -221,13 +225,16 @@ export default function HeroSection() {
                 relative
                 hidden
                 aspect-square
+                w-full
                 overflow-hidden
-                rounded-lg
+                rounded-2xl
                 border
                 border-[#47464a]/10
 
                 md:col-span-5
                 md:block
+                md:max-w-none
+                md:rounded-lg
               "
             >
               {/* GRID */}
@@ -280,7 +287,7 @@ export default function HeroSection() {
           </div>
 
           {/* TRUST STRIP */}
-          <div className="relative z-20">
+          <div className="relative z-20 pb-16 md:pb-0">
             <TrustStrip />
           </div>
         </div>
