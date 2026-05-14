@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -12,10 +11,19 @@ export default function HeroSection() {
   const totalFrames = 192;
 
   useEffect(() => {
-    // Preload frames
+    /**
+     * Disable heavy frame animation on mobile
+     */
+    if (window.innerWidth < 768) return;
+
+    /**
+     * PRELOAD FRAMES
+     */
     for (let i = 1; i <= totalFrames; i++) {
       const img = new window.Image();
+
       const paddedIndex = i.toString().padStart(3, "0");
+
       img.src = `/hero/ezgif-frame-${paddedIndex}.jpg`;
     }
 
@@ -25,29 +33,27 @@ export default function HeroSection() {
       if (!containerRef.current || !imgRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
+
       const viewportHeight = window.innerHeight;
 
       /**
-       * Total sticky scroll distance
+       * TOTAL SCROLLABLE DISTANCE
        */
       const scrollDistance = rect.height - viewportHeight;
 
       /**
-       * Progress: 0 → 1
+       * PROGRESS 0 → 1
        */
       let progress = -rect.top / scrollDistance;
 
       progress = Math.max(0, Math.min(1, progress));
 
       /**
-       * Smooth frame mapping
+       * FRAME CALCULATION
        */
       const frame = Math.min(
         totalFrames,
-        Math.max(
-          1,
-          Math.floor(progress * (totalFrames - 1)) + 1
-        )
+        Math.max(1, Math.floor(progress * (totalFrames - 1)) + 1),
       );
 
       const paddedFrame = frame.toString().padStart(3, "0");
@@ -75,24 +81,132 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[160vh] bg-[#0E0E10]"
-    >
-      {/* Sticky Hero */}
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="relative z-10 flex h-full flex-col justify-between">
-          {/* Hero Content */}
-          <div className="mx-auto grid h-full w-full max-w-[1440px] grid-cols-12 items-center gap-2 px-8 pt-20">
-            {/* LEFT */}
-            <div className="col-span-12 flex flex-col gap-12 md:col-span-7">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#47464a]/30 px-3 py-1">
-                <span className="h-2 w-2 rounded-full bg-[#3A6FF7]" />
+      className="
+        relative
+        bg-[#0E0E10]
 
-                <span className="text-xs uppercase tracking-[0.2em] text-[#F5F5F3]">
+        h-auto
+        md:h-[200vh]
+        lg:h-[180vh]
+        xl:h-[160vh]
+      "
+    >
+      {/* STICKY HERO */}
+      <div
+        className="
+          relative
+          md:sticky
+          md:top-0
+          md:h-screen
+          overflow-hidden
+        "
+      >
+        <div
+          className="
+            relative
+            z-10
+            flex
+            min-h-screen
+            flex-col
+            justify-between
+          "
+        >
+          {/* HERO CONTENT */}
+          <div
+            className="
+              mx-auto
+              grid
+              w-full
+              max-w-[1440px]
+              grid-cols-12
+              items-center
+              gap-y-12
+              px-4
+              pt-20
+              pb-16
+
+              sm:px-6
+              sm:pt-24
+              md:h-full
+              md:gap-2
+              md:px-8
+              md:pt-20
+              lg:px-10
+              xl:px-16
+            "
+          >
+            {/* LEFT */}
+            <div
+              className="
+                col-span-12
+                flex
+                flex-col
+                gap-8
+
+                md:gap-12
+                md:col-span-7
+              "
+            >
+              {/* BADGE */}
+              <div
+                className="
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-[#47464a]/30
+                  px-3
+                  py-1
+                "
+              >
+                <span
+                  className="
+                    h-2
+                    w-2
+                    rounded-full
+                    bg-[#3A6FF7]
+                  "
+                />
+
+                <span
+                  className="
+                    text-[10px]
+                    uppercase
+                    tracking-[0.18em]
+                    text-[#F5F5F3]
+
+                    md:text-xs
+                    md:tracking-[0.2em]
+                  "
+                >
                   AI-Powered Consulting & Delivery
                 </span>
               </div>
 
-              <h1 className="text-[120px] font-semibold leading-[1.02] tracking-[-0.05em] text-[#F5F5F3]">
+              {/* HEADLINE */}
+              <h1
+                className="
+                  max-w-[95%]
+                  text-[36px]
+                  font-semibold
+                  leading-[1]
+                  tracking-[-0.02em]
+                  text-[#F5F5F3]
+
+                  sm:max-w-[90%]
+                  sm:text-[48px]
+                  sm:tracking-[-0.03em]
+
+                  md:max-w-none
+                  md:text-[72px]
+                  md:leading-[0.98]
+                  lg:text-[96px]
+                  xl:text-[120px]
+                  xl:tracking-[-0.04em]
+                "
+              >
                 Empowering
                 <br />
                 Business
@@ -101,11 +215,28 @@ export default function HeroSection() {
               </h1>
             </div>
 
-            {/* RIGHT */}
-            <div className="relative col-span-12 aspect-square overflow-hidden rounded-lg border border-[#47464a]/10 md:col-span-5">
-              {/* Blueprint Grid */}
+            {/* RIGHT VISUAL - HIDDEN ON MOBILE */}
+            <div
+              className="
+                relative
+                hidden
+                aspect-square
+                overflow-hidden
+                rounded-lg
+                border
+                border-[#47464a]/10
+
+                md:col-span-5
+                md:block
+              "
+            >
+              {/* GRID */}
               <div
-                className="absolute inset-0 opacity-40"
+                className="
+                  absolute
+                  inset-0
+                  opacity-40
+                "
                 style={{
                   backgroundImage: `
                     linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -115,31 +246,78 @@ export default function HeroSection() {
                 }}
               />
 
-              {/* Animation */}
+              {/* ANIMATION */}
               <img
                 ref={imgRef}
                 src="/hero/ezgif-frame-001.jpg"
                 alt="Azetworks AI Infrastructure"
-                className="relative z-10 h-full w-full scale-[1.12] object-contain opacity-80 mix-blend-luminosity"
+                className="
+                  relative
+                  z-10
+                  h-full
+                  w-full
+                  scale-[1.12]
+                  object-contain
+                  opacity-80
+                  mix-blend-luminosity
+                "
               />
 
-              {/* Depth */}
-              <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent opacity-70" />
+              {/* DEPTH */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  z-20
+                  bg-gradient-to-t
+                  from-[#0E0E10]
+                  via-transparent
+                  to-transparent
+                  opacity-70
+                "
+              />
             </div>
           </div>
 
-          {/* Trust Strip */}
+          {/* TRUST STRIP */}
           <div className="relative z-20">
             <TrustStrip />
           </div>
         </div>
 
-        {/* Hero Bottom Fade */}
-        <div className="pointer-events-none absolute bottom-0 left-0 z-30 h-40 w-full bg-gradient-to-b from-transparent to-[#0E0E10]" />
+        {/* FADE */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            bottom-0
+            left-0
+            z-30
+            hidden
+            h-40
+            w-full
+            bg-gradient-to-b
+            from-transparent
+            to-[#0E0E10]
+
+            md:block
+          "
+        />
       </div>
 
-      {/* FOUNDATION SECTION OVERLAP */}
-      <div className="absolute bottom-0 left-0 z-40 w-full translate-y-[10%]">
+      {/* FOUNDATION OVERLAP */}
+      <div
+        className="
+          relative
+          z-40
+          w-full
+
+          md:absolute
+          md:bottom-0
+          md:left-0
+          md:translate-y-[10%]
+        "
+      >
         <FoundationSection />
       </div>
     </section>
