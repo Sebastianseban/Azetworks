@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 
 import HeroSection from "@/components/Solutions-section/HeroSection";
 import MoveToCloudSection from "@/components/Solutions-section/MoveToCloudSection";
-import ModernizeSection from "@/components/Solutions-section/ModernizeSection";
+import ModernizeScaleSection from "@/components/Solutions-section/ModernizeScaleSection";
 import AIWorkflowSection from "@/components/Solutions-section/AIWorkflowSection";
 import CTASection from "@/components/Solutions-section/CTASection";
 
@@ -17,7 +17,7 @@ export default function SolutionsPage() {
 
         <MoveToCloudSection />
 
-        <ModernizeSection />
+        <ModernizeScaleSection />
 
         <AIWorkflowSection />
 
