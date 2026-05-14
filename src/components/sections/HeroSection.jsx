@@ -11,46 +11,39 @@ export default function HeroSection() {
   const totalFrames = 192;
 
   useEffect(() => {
-    /**
-     * Disable heavy frame animation on mobile
-     */
-    if (window.innerWidth < 768) return;
+    let framesPreloaded = false;
 
-    /**
-     * PRELOAD FRAMES
-     */
-    for (let i = 1; i <= totalFrames; i++) {
-      const img = new window.Image();
+    const preloadFrames = () => {
+      if (framesPreloaded) return;
+      framesPreloaded = true;
+      for (let i = 1; i <= totalFrames; i++) {
+        const img = new window.Image();
+        const paddedIndex = i.toString().padStart(3, "0");
+        img.src = `/hero/ezgif-frame-${paddedIndex}.jpg`;
+      }
+    };
 
-      const paddedIndex = i.toString().padStart(3, "0");
-
-      img.src = `/hero/ezgif-frame-${paddedIndex}.jpg`;
+    if (window.innerWidth >= 768) {
+      preloadFrames();
     }
 
     let rafId;
 
     const updateFrame = () => {
+      if (window.innerWidth < 768) return;
+      
+      preloadFrames(); // Ensure loaded if resized from mobile
+
       if (!containerRef.current || !imgRef.current) return;
 
       const rect = containerRef.current.getBoundingClientRect();
-
       const viewportHeight = window.innerHeight;
 
-      /**
-       * TOTAL SCROLLABLE DISTANCE
-       */
-      const scrollDistance = rect.height - viewportHeight;
+      const scrollDistance = Math.max(1, rect.height - viewportHeight);
 
-      /**
-       * PROGRESS 0 → 1
-       */
       let progress = -rect.top / scrollDistance;
-
       progress = Math.max(0, Math.min(1, progress));
 
-      /**
-       * FRAME CALCULATION
-       */
       const frame = Math.min(
         totalFrames,
         Math.max(1, Math.floor(progress * (totalFrames - 1)) + 1),
@@ -65,15 +58,14 @@ export default function HeroSection() {
       });
     };
 
-    window.addEventListener("scroll", updateFrame, {
-      passive: true,
-    });
+    window.addEventListener("scroll", updateFrame, { passive: true });
+    window.addEventListener("resize", updateFrame, { passive: true });
 
     updateFrame();
 
     return () => {
       window.removeEventListener("scroll", updateFrame);
-
+      window.removeEventListener("resize", updateFrame);
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);

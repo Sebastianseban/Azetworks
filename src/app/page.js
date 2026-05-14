@@ -1,4 +1,3 @@
-
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -13,12 +12,10 @@ import CTASection from "@/components/sections/CTASection";
 
 export default function HomePage() {
   return (
-    <main className="overflow-hidden px-6 bg-[#0E0E10] text-[#e5e2e1]">
+    <main className="overflow-x-hidden bg-[#0E0E10] text-[#e5e2e1]">
       <Header />
 
       <HeroSection />
-
-
 
       <CoreValuesSection />
 

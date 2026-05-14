@@ -102,22 +102,22 @@ export default function ServicesSection() {
       : services.filter((service) => service.category === activeFilter);
 
   return (
-    <section className="px-8 max-w-[1440px] mx-auto py-20">
-      <div className="mb-16">
-        <div className="text-xs uppercase tracking-[0.2em] text-[#4A8F8B] mb-4">
+    <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-16 sm:py-20">
+      <div className="mb-10 sm:mb-16">
+        <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#4A8F8B] mb-3 sm:mb-4">
           Our Offerings
         </div>
 
-        <h2 className="text-[64px] leading-[1.1] tracking-[-0.02em] font-semibold mb-10">
+        <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] font-semibold mb-6 sm:mb-10">
           Systematic Excellence.
         </h2>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-2 sm:gap-4">
           {filters.map((filter) => (
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-[12px] sm:text-sm font-medium transition-all duration-300 ${
                 activeFilter === filter.id
                   ? "bg-[#3A6FF7] text-white shadow-[0_0_15px_rgba(58,111,247,0.5)]"
                   : "bg-[#111112] border border-white/10 text-[#c8c5ca] hover:bg-white/5"
@@ -129,46 +129,46 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
         {filteredServices.map((service) => (
           <article
             key={service.code}
-            className={`rounded-3xl border border-white/10 bg-[#111112] p-10 transition-all duration-500 hover:shadow-[0_35px_120px_-40px_rgba(58,111,247,0.55)] ${
+            className={`rounded-2xl sm:rounded-3xl border border-white/10 bg-[#111112] p-6 sm:p-10 transition-all duration-500 hover:shadow-[0_35px_120px_-40px_rgba(58,111,247,0.55)] ${
               service.large ? "lg:col-span-2" : ""
             }`}
           >
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-8">
               <div className="flex items-center gap-2">
-                <span className="text-xs uppercase tracking-[0.2em] text-[#3A6FF7]">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7]">
                   {service.category}
                 </span>
                 <span className="text-[#3A6FF7]">↗</span>
               </div>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#c8c5ca]">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#c8c5ca]">
                 {service.code}
               </span>
             </div>
 
-            <h3 className="text-[36px] leading-[1.05] font-semibold mb-4">
+            <h3 className="text-[24px] sm:text-[32px] lg:text-[36px] leading-[1.1] sm:leading-[1.05] font-semibold mb-3 sm:mb-4">
               {service.title}
             </h3>
 
-            <p className="text-[#F5F5F399] italic mb-6">
+            <p className="text-[14px] sm:text-[16px] text-[#F5F5F399] italic mb-4 sm:mb-6">
               {service.tagline}
             </p>
 
-            <p className="text-[18px] leading-[1.75] text-[#d5d2d6] mb-8">
+            <p className="text-[16px] sm:text-[18px] leading-[1.6] sm:leading-[1.75] text-[#d5d2d6] mb-6 sm:mb-8">
               {service.description}
             </p>
 
             {service.metrics ? (
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 grid-cols-2">
                 {service.metrics.map(([value, label]) => (
                   <div key={`${service.code}-${value}`}>
-                    <div className="text-[32px] font-semibold tracking-tight text-white">
+                    <div className="text-[24px] sm:text-[32px] font-semibold tracking-tight text-white">
                       {value}
                     </div>
-                    <div className="text-sm uppercase tracking-[0.2em] text-[#8e8c96]">
+                    <div className="text-[10px] sm:text-sm uppercase tracking-[0.2em] text-[#8e8c96]">
                       {label}
                     </div>
                   </div>
