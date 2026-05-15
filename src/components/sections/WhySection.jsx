@@ -12,7 +12,7 @@ const renderIcon = (val) => {
   if (val === "✓") {
     return (
       <div className="flex justify-center">
-        <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#3A6FF7]/20 text-[#3A6FF7] text-sm sm:text-base">
+        <div className="flex h-5 w-5 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#3A6FF7]/20 text-[#3A6FF7] text-[10px] sm:text-base">
           ✓
         </div>
       </div>
@@ -21,7 +21,7 @@ const renderIcon = (val) => {
   if (val === "~") {
     return (
       <div className="flex justify-center">
-        <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/5 text-[#c8c5ca] text-sm sm:text-base">
+        <div className="flex h-5 w-5 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/5 text-[#c8c5ca] text-[10px] sm:text-base">
           ~
         </div>
       </div>
@@ -30,7 +30,7 @@ const renderIcon = (val) => {
   if (val === "✗") {
     return (
       <div className="flex justify-center">
-        <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-red-500/10 text-red-500/80 text-sm sm:text-base">
+        <div className="flex h-5 w-5 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-red-500/10 text-red-500/80 text-[10px] sm:text-base">
           ✗
         </div>
       </div>
@@ -87,16 +87,20 @@ export default function WhySection() {
       </div>
 
       <div className="col-span-12 lg:col-span-7">
-        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#111112] p-4 sm:p-6 md:p-10 overflow-x-auto">
-          <table className="w-full min-w-[400px] sm:min-w-[500px] border-collapse text-left">
+        <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-[#111112] p-3 sm:p-6 md:p-10 overflow-hidden">
+          <table className="w-full border-collapse text-left table-fixed">
             <thead>
-              <tr className="border-b border-white/10 text-[10px] sm:text-sm font-medium text-[#c8c5ca]">
-                <th className="pb-4 sm:pb-6 font-normal">Feature</th>
-                <th className="pb-4 sm:pb-6 text-center font-semibold text-white">
+              <tr className="border-b border-white/10 text-[9px] sm:text-sm font-medium text-[#c8c5ca]">
+                <th className="pb-3 sm:pb-6 font-normal w-[35%] sm:w-auto pr-1">Feature</th>
+                <th className="pb-3 sm:pb-6 text-center font-semibold text-white px-1">
                   Azetworks
                 </th>
-                <th className="pb-4 sm:pb-6 text-center font-normal">Traditional</th>
-                <th className="pb-4 sm:pb-6 text-center font-normal">AI-First</th>
+                <th className="pb-3 sm:pb-6 text-center font-normal px-1">
+                  Traditional
+                </th>
+                <th className="pb-3 sm:pb-6 text-center font-normal px-1">
+                  AI-First
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -109,12 +113,12 @@ export default function WhySection() {
                       : ""
                   }
                 >
-                  <td className="py-4 sm:py-6 text-[12px] sm:text-[15px] font-medium text-[#d5d2d6]">
+                  <td className="py-4 sm:py-6 pr-1 text-[11px] sm:text-[15px] font-medium text-[#d5d2d6] leading-tight">
                     {feature.name}
                   </td>
-                  <td className="py-4 sm:py-6">{renderIcon(feature.azetworks)}</td>
-                  <td className="py-4 sm:py-6">{renderIcon(feature.traditional)}</td>
-                  <td className="py-4 sm:py-6">{renderIcon(feature.aiFirst)}</td>
+                  <td className="py-4 sm:py-6 px-1">{renderIcon(feature.azetworks)}</td>
+                  <td className="py-4 sm:py-6 px-1">{renderIcon(feature.traditional)}</td>
+                  <td className="py-4 sm:py-6 px-1">{renderIcon(feature.aiFirst)}</td>
                 </tr>
               ))}
             </tbody>
