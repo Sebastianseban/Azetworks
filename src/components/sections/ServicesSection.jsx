@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FiGrid } from "react-icons/fi";
 
 const services = [
   {
@@ -104,8 +105,11 @@ export default function ServicesSection() {
   return (
     <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-5 sm:py-20">
       <div className="mb-10 sm:mb-16">
-        <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#4A8F8B] mb-3 sm:mb-4">
-          Our Offerings
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+          <FiGrid className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+            Our Offerings
+          </span>
         </div>
 
         <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] font-semibold mb-6 sm:mb-10">

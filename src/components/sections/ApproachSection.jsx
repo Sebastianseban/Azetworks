@@ -1,15 +1,16 @@
 import {
-  HiOutlineMagnifyingGlass,
-  HiOutlineMap,
+  HiOutlineLightBulb,
   HiOutlineCog,
   HiOutlineCheckCircle,
-} from "react-icons/hi2";
+  HiOutlineViewGrid,
+  HiOutlineMap,
+} from "react-icons/hi";
 
 export default function ApproachSection() {
   const steps = [
     {
       id: "01",
-      icon: HiOutlineMagnifyingGlass,
+      icon: HiOutlineLightBulb,
       title: "Discover",
       description:
         "Agentic AI scans your environment — infrastructure, code, databases — and builds a complete picture in days, not weeks.",
@@ -40,8 +41,11 @@ export default function ApproachSection() {
   return (
     <section className="px-4 sm:px-8 py-3 sm:py-24 max-w-[1440px] mx-auto">
       <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-        <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-3 sm:mb-4">
-          Our Approach
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+          <HiOutlineMap className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+            Our Approach
+          </span>
         </div>
         <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.05] font-semibold">
           How Azetworks Works

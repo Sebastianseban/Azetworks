@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FiShield } from "react-icons/fi";
 
 const features = [
   { name: "Technical Depth", azetworks: "✓", traditional: "~", aiFirst: "✗" },
@@ -52,9 +53,12 @@ export default function WhySection() {
     <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-6 sm:py-20 grid grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
       <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 sm:gap-8">
         <div>
-          <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-3 sm:mb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+          <FiShield className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
             Why Azetworks
-          </div>
+          </span>
+        </div>
           <h2 className="text-[36px] sm:text-[48px] md:text-[64px] leading-[1.1] tracking-[-0.02em] font-semibold">
             Built Different.
           </h2>
