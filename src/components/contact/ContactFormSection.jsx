@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { FaArrowRight, FaLinkedin, FaGlobe, FaEnvelope } from "react-icons/fa6";
 
 const options = [
@@ -14,6 +17,46 @@ const options = [
 ];
 
 export default function ContactFormSection() {
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    interest: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send message");
+
+      setStatus("success");
+      setFormData({ firstName: "", lastName: "", email: "", company: "", interest: "", message: "" });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  };
+
   return (
     <section className="px-4 sm:px-6 md:px-16 py-16 md:py-32 max-w-[1440px] mx-auto border-t border-[#47464a]/30 relative z-10 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-8">
@@ -75,17 +118,38 @@ export default function ContactFormSection() {
             {/* Form background glow */}
             <div className="absolute top-0 right-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-[#3A6FF7]/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
 
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-10 relative z-10 w-full min-w-0">
-              <InputField label="First Name *" placeholder="Jane" />
-              <InputField label="Last Name *" placeholder="Smith" />
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-10 relative z-10 w-full min-w-0">
+              <InputField 
+                label="First Name *" 
+                placeholder="Jane" 
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+              <InputField 
+                label="Last Name *" 
+                placeholder="Smith" 
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
               <InputField
                 label="Work Email *"
                 placeholder="jane@company.com"
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
               />
               <InputField
                 label="Company"
                 placeholder="Acme Corp"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
               />
 
               <div className="flex flex-col gap-2 sm:gap-3 md:col-span-2 group min-w-0">
@@ -93,12 +157,19 @@ export default function ContactFormSection() {
                   I'm interested in *
                 </label>
                 <div className="relative w-full min-w-0">
-                  <select className="w-full min-w-0 bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all appearance-none text-white text-sm sm:text-base truncate pr-10">
-                    <option value="" disabled selected>Select a service area</option>
+                  <select 
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    required
+                    className="w-full min-w-0 bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all appearance-none text-white text-sm sm:text-base truncate pr-10"
+                  >
+                    <option value="" disabled>Select a service area</option>
                     {options.map((option) => (
                       <option
                         key={option}
                         className="bg-[#1a1a1a] text-white"
+                        value={option}
                       >
                         {option}
                       </option>
@@ -115,6 +186,10 @@ export default function ContactFormSection() {
                   Tell us about your challenge *
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   rows={4}
                   placeholder="Describe your current environment, the challenge you're facing..."
                   className="w-full min-w-0 bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 resize-none focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all text-white placeholder:text-[#F5F5F3]/30 text-sm sm:text-base"
@@ -122,13 +197,27 @@ export default function ContactFormSection() {
               </div>
 
               <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 pt-2 sm:pt-4 min-w-0">
-                <button
-                  type="submit"
-                  className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#F5F5F3] transition-all transform hover:scale-105 w-full sm:w-auto shrink-0"
-                >
-                  <span>Send Message</span>
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#F5F5F3] transition-all transform hover:scale-105 w-full sm:w-auto shrink-0 disabled:opacity-70 disabled:hover:scale-100"
+                  >
+                    <span>{status === "loading" ? "Sending..." : "Send Message"}</span>
+                    {status !== "loading" && <FaArrowRight className="group-hover:translate-x-1 transition-transform" />}
+                  </button>
+                  
+                  {status === "success" && (
+                    <span className="text-emerald-400 text-sm font-semibold animate-pulse">
+                      Message sent successfully!
+                    </span>
+                  )}
+                  {status === "error" && (
+                    <span className="text-red-400 text-sm font-semibold animate-pulse">
+                      Failed to send. Please try again.
+                    </span>
+                  )}
+                </div>
 
                 <p className="text-[#F5F5F3]/50 text-[11px] sm:text-sm italic text-center sm:text-right mt-2 sm:mt-0 truncate">
                   We typically respond within one business day.
@@ -146,6 +235,10 @@ function InputField({
   label,
   placeholder,
   type = "text",
+  name,
+  value,
+  onChange,
+  required = false
 }) {
   return (
     <div className="flex flex-col gap-2 sm:gap-3 group min-w-0">
@@ -154,6 +247,10 @@ function InputField({
       </label>
       <input
         type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
         placeholder={placeholder}
         className="w-full min-w-0 bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all placeholder:text-[#F5F5F3]/30 text-white text-sm sm:text-base"
       />
