@@ -36,9 +36,9 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <button className="border border-[#919095] px-4 sm:px-6 py-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
+          <Link href="/contact" className="inline-block border border-[#919095] px-4 sm:px-6 py-2 text-[10px] sm:text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
             Get Started
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -64,9 +64,9 @@ export default function Header() {
                 </Link>
               ))}
             </nav>
-            <button className="border border-[#919095] px-8 py-3 mt-4 text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="inline-block border border-[#919095] px-8 py-3 mt-4 text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">
               Get Started
-            </button>
+            </Link>
           </div>
         )}
       </div>
