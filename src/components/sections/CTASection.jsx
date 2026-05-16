@@ -30,7 +30,7 @@ export default function CTASection() {
           </Link>
           
           <Link
-            href="/services"
+            href="/Solutions"
             className="flex w-full sm:w-auto items-center justify-center rounded-full border border-[#d1d0d4] bg-transparent px-8 py-4 sm:py-5 text-[15px] sm:text-[16px] font-bold text-[#0E0E10] transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:border-transparent hover:shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
           >
             Explore Services
