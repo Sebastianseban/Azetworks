@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function FoundationSection() {
   return (
-    <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-16 sm:py-20 grid grid-cols-12 gap-8 sm:gap-12 md:gap-8 items-center text-center md:text-left">
+    <section className="px-4 sm:px-8 max-w-[1440px] mx-auto  sm:py-20 grid grid-cols-12 gap-8 sm:gap-12 md:gap-8 items-center text-center md:text-left">
       <div className="col-span-12 md:col-span-5 flex flex-col items-center md:items-start gap-4 sm:gap-6 lg:gap-8">
         <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7]">
           Our Foundation

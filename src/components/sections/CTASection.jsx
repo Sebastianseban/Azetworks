@@ -3,7 +3,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function CTASection() {
   return (
-    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-16 sm:py-24 mb-10">
+    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-5 sm:py-24 mb-10">
       <div className="relative overflow-hidden rounded-[2.5rem] bg-[#F5F5F3] px-8 py-16 sm:px-12 md:px-16 sm:py-24 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left shadow-[0_15px_40px_-10px_rgba(255,255,255,0.05)]">
         
         {/* Decorative background ambient glows for light mode */}

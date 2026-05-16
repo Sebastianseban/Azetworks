@@ -38,7 +38,7 @@ export default function ApproachSection() {
   ];
 
   return (
-    <section className="px-4 sm:px-8 py-16 sm:py-24 max-w-[1440px] mx-auto">
+    <section className="px-4 sm:px-8 py-3 sm:py-24 max-w-[1440px] mx-auto">
       <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
         <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-3 sm:mb-4">
           Our Approach

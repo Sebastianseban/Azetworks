@@ -102,7 +102,7 @@ export default function ServicesSection() {
       : services.filter((service) => service.category === activeFilter);
 
   return (
-    <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-16 sm:py-20">
+    <section className="px-4 sm:px-8 max-w-[1440px] mx-auto py-5 sm:py-20">
       <div className="mb-10 sm:mb-16">
         <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#4A8F8B] mb-3 sm:mb-4">
           Our Offerings

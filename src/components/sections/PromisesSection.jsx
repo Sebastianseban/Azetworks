@@ -36,7 +36,7 @@ const promises = [
 
 export default function PromisesSection() {
   return (
-    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-16 sm:py-20 lg:py-24">
+    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-5 sm:py-20 lg:py-24">
       <div className="flex flex-col items-center text-center mb-12 sm:mb-16 lg:mb-20">
         <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-3 sm:mb-4">
           Our Promises
