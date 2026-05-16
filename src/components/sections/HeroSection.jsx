@@ -1,5 +1,6 @@
 import TrustStrip from "./TrustStrip";
 import FoundationSection from "./FoundationSection";
+import HeroAnimation from "./HeroAnimation";
 import { FiZap } from "react-icons/fi";
 
 export default function HeroSection() {
@@ -44,18 +45,11 @@ export default function HeroSection() {
                 }}
               />
 
-              {/* VIDEO */}
-              <video
-                src="/images/landingpagevideo.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="relative z-10 h-full w-full object-cover opacity-80 mix-blend-luminosity"
-              />
+              {/* HERO ANIMATION SEQUENCE */}
+              <HeroAnimation />
 
               {/* DEPTH */}
-              <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent opacity-70" />
+              <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent opacity-70 pointer-events-none" />
             </div>
           </div>
 
