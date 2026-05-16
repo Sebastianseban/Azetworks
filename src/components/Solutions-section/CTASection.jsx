@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -17,12 +18,12 @@ export default function CTASection() {
           Our team will assess your environment and recommend the best path forward.
         </p>
 
-        <button className="group flex items-center justify-center gap-4 bg-[#0E0E10] text-[#F5F5F3] px-8 sm:px-12 py-5 sm:py-6 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#3A6FF7] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(58,111,247,0.4)] transition-all duration-300 mx-auto">
+        <Link href="/contact" className="group flex w-fit items-center justify-center gap-4 bg-[#0E0E10] text-[#F5F5F3] px-8 sm:px-12 py-5 sm:py-6 rounded-full text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] hover:bg-[#3A6FF7] hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(58,111,247,0.4)] transition-all duration-300 mx-auto">
           <span>Request Free Assessment</span>
           <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-white/20">
             <FiArrowRight className="text-lg" />
           </div>
-        </button>
+        </Link>
       </div>
     </section>
   );
