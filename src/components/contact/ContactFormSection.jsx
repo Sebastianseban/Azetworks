@@ -1,4 +1,4 @@
-import { FaArrowRight, FaLinkedin, FaGlobe } from "react-icons/fa6";
+import { FaArrowRight, FaLinkedin, FaGlobe, FaEnvelope } from "react-icons/fa6";
 
 const options = [
   "DEMS – Datacenter Exit Made Simple",
@@ -29,13 +29,27 @@ export default function ContactFormSection() {
             <div className="flex flex-row flex-wrap lg:flex-col gap-6 sm:gap-10">
               <div className="group min-w-0">
                 <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#3A6FF7] mb-2 sm:mb-3">
+                  EMAIL US
+                </p>
+                <a
+                  href="mailto:support@azetworks.com"
+                  className="inline-flex items-center gap-2 sm:gap-3 text-white hover:text-[#3A6FF7] transition-colors text-sm sm:text-lg break-words"
+                >
+                  <FaEnvelope className="text-[#3A6FF7] opacity-70 group-hover:opacity-100 transition-opacity shrink-0" />
+                  <span className="truncate">support@azetworks.com</span>
+                </a>
+              </div>
+
+              <div className="group min-w-0">
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-2 sm:mb-3">
                   DIRECT ACCESS
                 </p>
                 <a
-                  href="#"
-                  className="inline-flex items-center gap-2 sm:gap-3 text-white hover:text-[#3A6FF7] transition-colors text-sm sm:text-lg break-words"
+                  href="https://www.azetworks.com"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 sm:gap-3 text-white hover:text-emerald-400 transition-colors text-sm sm:text-lg break-words"
                 >
-                  <FaGlobe className="text-[#3A6FF7] opacity-70 group-hover:opacity-100 transition-opacity shrink-0" />
+                  <FaGlobe className="text-emerald-400 opacity-70 group-hover:opacity-100 transition-opacity shrink-0" />
                   <span className="truncate">www.azetworks.com</span>
                 </a>
               </div>
