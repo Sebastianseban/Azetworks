@@ -1,19 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function StickySubNav() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPastThreshold, setIsPastThreshold] = useState(false);
   const [activeSection, setActiveSection] = useState("move-to-cloud");
+  const scrollTimeout = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show the floating nav after scrolling past the hero section
-      if (window.scrollY > 300) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
       // Check which section is active
       const sections = ["move-to-cloud", "modernize-scale", "ai-powered-workflows"];
       let currentActive = sections[0];
@@ -29,13 +25,37 @@ export default function StickySubNav() {
       }
 
       setActiveSection(currentActive);
+
+      // Visibility logic - only show while actively scrolling
+      if (window.scrollY > 300) {
+        setIsPastThreshold(true);
+        setIsVisible(true);
+        
+        // Clear previous timeout
+        if (scrollTimeout.current) {
+          clearTimeout(scrollTimeout.current);
+        }
+        
+        // Set new timeout to hide the nav 1.5 seconds after scrolling stops
+        scrollTimeout.current = setTimeout(() => {
+          setIsVisible(false);
+        }, 1500);
+      } else {
+        setIsPastThreshold(false);
+        setIsVisible(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     // Call once to set initial state on load
     handleScroll();
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+    };
   }, []);
 
   const getButtonClass = (sectionId) => {
@@ -46,10 +66,15 @@ export default function StickySubNav() {
     return `${baseClass} ${activeSection === sectionId ? activeClass : inactiveClass}`;
   };
 
+  // Keep visible if hovered (but only if we are past the 300px threshold)
+  const showMenu = isPastThreshold && (isVisible || isHovered);
+
   return (
     <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={`fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-        isScrolled
+        showMenu
           ? "translate-y-0 opacity-100"
           : "-translate-y-20 opacity-0 pointer-events-none"
       }`}

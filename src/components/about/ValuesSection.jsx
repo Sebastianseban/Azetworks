@@ -1,4 +1,4 @@
-import { FiZap, FiUsers, FiShield } from "react-icons/fi";
+import { FiZap, FiUsers, FiShield, FiStar } from "react-icons/fi";
 
 const values = [
   {
@@ -23,9 +23,12 @@ export default function ValuesSection() {
     <section className="px-4 sm:px-8 lg:px-16 py-[80px] lg:py-[160px] max-w-[1440px] mx-auto">
       <div className="grid grid-cols-12 gap-4 md:gap-8 mb-12 md:mb-24">
         <div className="col-span-12">
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-4 block">
-            Core Values
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 md:mb-8 hover:bg-white/10 transition-colors cursor-default w-fit">
+            <FiStar className="text-[#3A6FF7] text-sm md:text-base" />
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+              Core Values
+            </span>
+          </div>
 
           <h2 className="text-[36px] sm:text-[48px] lg:text-[64px] leading-[1.1] font-semibold text-white">
             What Drives Us

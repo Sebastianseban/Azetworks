@@ -1,4 +1,4 @@
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaRoute } from "react-icons/fa6";
 
 const steps = [
   {
@@ -39,9 +39,12 @@ export default function WorkflowSection() {
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-20">
           <div className="flex flex-col gap-4 md:gap-6 max-w-2xl">
-            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#3A6FF7] bg-[#3A6FF7]/10 inline-block px-3 py-1.5 rounded-full w-fit">
-              Workflow
-            </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-default w-fit">
+              <FaRoute className="text-[#3A6FF7] text-sm md:text-base" />
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+                Workflow
+              </span>
+            </div>
 
             <h2 className="text-[32px] sm:text-[48px] md:text-[64px] leading-[1.1] font-bold text-white tracking-tight">
               What Happens Next?

@@ -1,4 +1,4 @@
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaHandshake } from "react-icons/fa6";
 import Link from "next/link";
 
 export default function PartnersCTA() {
@@ -10,12 +10,12 @@ export default function PartnersCTA() {
         <div className="absolute bottom-0 right-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-purple-600/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 sm:mb-8">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#3A6FF7] animate-pulse"></span>
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 sm:mb-8 hover:bg-white/10 transition-colors cursor-default w-fit">
+            <FaHandshake className="text-[#3A6FF7] text-sm md:text-base" />
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
               Strategic Engagement
             </span>
-          </span>
+          </div>
 
           <h2 className="text-[32px] sm:text-[40px] md:text-[64px] leading-[1.1] font-bold text-white mb-6 sm:mb-8 tracking-tight">
             Ready to partner with Azetworks?

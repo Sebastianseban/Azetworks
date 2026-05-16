@@ -127,8 +127,11 @@ export default function AIWorkflowSection() {
       
       {/* Section Header */}
       <div className="max-w-4xl mb-24">
-        <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#4A8F8B]/30 bg-[#4A8F8B]/10 rounded-full text-[#4A8F8B] text-xs font-bold uppercase tracking-[0.15em] mb-8 backdrop-blur-md">
-          Intelligent Automation
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 sm:mb-8 hover:bg-white/10 transition-colors cursor-default w-fit">
+          <FiCpu className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+            Intelligent Automation
+          </span>
         </div>
         <h2 className="text-[48px] sm:text-[64px] md:text-[80px] leading-[1.05] tracking-[-0.03em] font-semibold text-white mb-8">
           AI-Powered Workflows

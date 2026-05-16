@@ -1,12 +1,13 @@
 import TrustStrip from "./TrustStrip";
 import FoundationSection from "./FoundationSection";
+import { FiZap } from "react-icons/fi";
 
 export default function HeroSection() {
   return (
     <section className="relative bg-[#0E0E10]">
       {/* HERO WRAPPER */}
       <div className="relative overflow-hidden">
-        <div className="relative z-10 flex min-h-[85vh] md:min-h-[100vh] flex-col justify-center pt-32 md:pt-0 gap-16 md:gap-0">
+        <div className="relative z-10 flex min-h-[60vh] md:min-h-[100vh] flex-col justify-center pt-28 md:pt-0 gap-10 md:gap-0">
           
           {/* HERO CONTENT */}
           <div className="mx-auto grid w-full flex-1 max-w-[1440px] grid-cols-12 items-center px-4 sm:px-8 md:h-full md:gap-2 md:pt-20 lg:px-10 xl:px-16">
@@ -14,9 +15,9 @@ export default function HeroSection() {
             {/* LEFT */}
             <div className="relative z-50 col-span-12 flex flex-col gap-6 items-center text-center md:text-left md:items-start md:gap-12 md:col-span-7">
               {/* BADGE */}
-              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#47464a]/30 bg-[#0e0e10]/50 px-3 py-1.5">
-                <span className="h-2 w-2 rounded-full bg-[#3A6FF7]" />
-                <span className="text-[10px] uppercase tracking-[0.18em] text-[#F5F5F3] md:text-xs md:tracking-[0.2em]">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-2 md:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+                <FiZap className="text-[#3A6FF7] text-sm md:text-base" />
+                <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
                   AI-Powered Consulting & Delivery
                 </span>
               </div>
@@ -59,7 +60,7 @@ export default function HeroSection() {
           </div>
 
           {/* TRUST STRIP */}
-          <div className="relative z-20 pb-16 md:pb-0">
+          <div className="relative z-20 pb-8 md:pb-0">
             <TrustStrip />
           </div>
         </div>
