@@ -132,6 +132,8 @@ export default function HeroSection() {
             {/* LEFT */}
             <div
               className="
+                relative
+                z-50
                 col-span-12
                 flex
                 flex-col
@@ -192,16 +194,17 @@ export default function HeroSection() {
                   leading-[1.1]
                   tracking-[-0.02em]
                   text-[#F5F5F3]
+                  whitespace-nowrap
 
                   sm:text-[48px]
                   sm:leading-[1]
                   sm:tracking-[-0.03em]
 
                   md:max-w-none
-                  md:text-[72px]
+                  md:text-[64px]
                   md:leading-[0.98]
-                  lg:text-[96px]
-                  xl:text-[120px]
+                  lg:text-[80px]
+                  xl:text-[100px]
                   xl:tracking-[-0.04em]
                 "
               >
