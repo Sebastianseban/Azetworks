@@ -1,4 +1,4 @@
-import { FiServer, FiZap, FiDatabase, FiCloud } from "react-icons/fi";
+import { FiServer, FiZap, FiDatabase, FiCloud, FiCheckCircle } from "react-icons/fi";
 import { BsCpu, BsRobot } from "react-icons/bs";
 
 const promises = [
@@ -36,10 +36,13 @@ const promises = [
 
 export default function PromisesSection() {
   return (
-    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-16 sm:py-20 lg:py-24">
+    <section className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-[1536px] mx-auto py-5 sm:py-20 lg:py-24">
       <div className="flex flex-col items-center text-center mb-12 sm:mb-16 lg:mb-20">
-        <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#3A6FF7] mb-3 sm:mb-4">
-          Our Promises
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+          <FiCheckCircle className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+            Our Promises
+          </span>
         </div>
         <h2 className="text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[1.1] tracking-[-0.02em] font-semibold text-white max-w-3xl">
           What We Stand For

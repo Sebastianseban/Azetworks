@@ -1,4 +1,4 @@
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus, FaLifeRing } from "react-icons/fa6";
 
 const faqs = [
   {
@@ -21,9 +21,12 @@ export default function FAQSection() {
       <div className="grid grid-cols-12 gap-10 md:gap-8">
         <div className="col-span-12 lg:col-span-4">
           <div className="sticky top-32">
-            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#3A6FF7] mb-4 block">
-              Support
-            </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit">
+              <FaLifeRing className="text-[#3A6FF7] text-sm md:text-base" />
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+                Support
+              </span>
+            </div>
             <h2 className="text-[32px] md:text-[48px] leading-[1.1] font-bold text-white mb-6">
               Quick Questions
             </h2>

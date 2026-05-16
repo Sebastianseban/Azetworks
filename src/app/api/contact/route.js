@@ -18,7 +18,7 @@ export async function POST(request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Azetworks Contact Form <onboarding@resend.dev>',
-      to: ['sebastianandrews1234@gmail.com'], // Using account-registered email for testing
+      to: ['support@azetworks.com'],
       reply_to: email,
       subject: `New Inquiry from ${firstName} ${lastName}: ${interest}`,
       html: `

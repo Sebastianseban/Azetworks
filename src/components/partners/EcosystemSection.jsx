@@ -1,4 +1,4 @@
-import { FaWrench, FaDatabase, FaRobot, FaChartLine } from "react-icons/fa6";
+import { FaWrench, FaDatabase, FaRobot, FaChartLine, FaShareNodes } from "react-icons/fa6";
 
 const ecosystems = [
   {
@@ -42,9 +42,12 @@ export default function EcosystemSection() {
       <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/5 to-transparent hidden md:block" />
 
       <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
-        <span className="text-xs sm:text-sm font-semibold tracking-widest text-[#3A6FF7] uppercase mb-3 sm:mb-4 block">
-          Technology Partners
-        </span>
+        <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-4 sm:mb-6 hover:bg-white/10 transition-colors cursor-default w-fit mx-auto">
+          <FaShareNodes className="text-[#3A6FF7] text-sm md:text-base" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e5e2e1] font-medium">
+            Technology Partners
+          </span>
+        </div>
         <h2 className="text-[32px] sm:text-[40px] md:text-[56px] leading-[1.1] font-bold text-white mb-4 sm:mb-6 tracking-tight">
           Technology Ecosystem
         </h2>

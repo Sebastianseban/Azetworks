@@ -74,7 +74,7 @@ const partners = [
 
 export default function CloudPartnersGrid() {
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 md:px-16 max-w-[1440px] mx-auto relative z-10">
+    <section className="md:py-20 px-4 sm:px-6 md:px-16 max-w-[1440px] mx-auto relative z-10">
       <div className="grid grid-cols-12 gap-6 md:gap-8 mb-12 md:mb-16">
         <div className="col-span-12 md:col-span-6 lg:col-span-5">
           <h2 className="text-[28px] sm:text-[32px] md:text-[40px] font-medium text-white mb-4 leading-tight">
