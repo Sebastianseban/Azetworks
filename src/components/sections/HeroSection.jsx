@@ -188,29 +188,30 @@ export default function HeroSection() {
               {/* HEADLINE */}
               <h1
                 className="
-                  max-w-[100%]
-                  text-[36px]
-                  font-semibold
+                  w-full
+                  text-[40px]
+                  font-bold
                   leading-[1.1]
                   tracking-[-0.02em]
                   text-[#F5F5F3]
-                  whitespace-nowrap
+                  break-words
 
-                  sm:text-[48px]
+                  sm:text-[56px]
                   sm:leading-[1]
                   sm:tracking-[-0.03em]
 
                   md:max-w-none
                   md:text-[64px]
                   md:leading-[0.98]
+                  md:whitespace-nowrap
                   lg:text-[80px]
                   xl:text-[100px]
                   xl:tracking-[-0.04em]
                 "
               >
                 Empowering
-                <br className="hidden md:block" /> Business
-                <br className="hidden md:block" /> Transformation
+                <br className="block md:hidden" /> Business
+                <br className="block" /> Transformation
               </h1>
             </div>
 
