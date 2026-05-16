@@ -1,3 +1,5 @@
+import { FaArrowRight, FaLinkedin, FaGlobe } from "react-icons/fa6";
+
 const options = [
   "DEMS – Datacenter Exit Made Simple",
   "C2C – Cloud to Cloud Migration",
@@ -13,103 +15,113 @@ const options = [
 
 export default function ContactFormSection() {
   return (
-    <section className="px-16 py-[160px] max-w-[1440px] mx-auto border-t border-[#47464a]">
-      <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-12 lg:col-span-4 mb-12 lg:mb-0">
-          <h2 className="text-[32px] font-medium text-white sticky top-32">
-            Send us a message
-          </h2>
+    <section className="px-4 sm:px-6 md:px-16 py-16 md:py-32 max-w-[1440px] mx-auto border-t border-[#47464a]/30 relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-8">
+        <div className="col-span-1 lg:col-span-4 mb-4 lg:mb-0">
+          <div className="lg:sticky lg:top-32">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[40px] font-bold text-white mb-4 sm:mb-6 leading-tight">
+              Send us a message
+            </h2>
+            <p className="text-[#F5F5F3]/70 text-sm sm:text-base mb-8 md:mb-12 max-w-sm">
+              We look forward to hearing from you. Fill out the form and our team will get back to you promptly.
+            </p>
 
-          <div className="mt-12 space-y-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#F5F5F399] mb-2">
-                DIRECT ACCESS
-              </p>
+            <div className="flex flex-row flex-wrap lg:flex-col gap-6 sm:gap-10">
+              <div className="group min-w-[140px]">
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#3A6FF7] mb-2 sm:mb-3">
+                  DIRECT ACCESS
+                </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 sm:gap-3 text-white hover:text-[#3A6FF7] transition-colors text-sm sm:text-lg break-all"
+                >
+                  <FaGlobe className="text-[#3A6FF7] opacity-70 group-hover:opacity-100 transition-opacity shrink-0" />
+                  www.azetworks.com
+                </a>
+              </div>
 
-              <a
-                href="#"
-                className="hover:text-[#c8c6c8] transition-colors"
-              >
-                www.azetworks.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#F5F5F399] mb-2">
-                NETWORK
-              </p>
-
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[#c8c6c8] transition-colors"
-              >
-                LinkedIn ↗
-              </a>
+              <div className="group min-w-[140px]">
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-purple-400 mb-2 sm:mb-3">
+                  NETWORK
+                </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 sm:gap-3 text-white hover:text-purple-400 transition-colors text-sm sm:text-lg"
+                >
+                  <FaLinkedin className="text-purple-400 opacity-70 group-hover:opacity-100 transition-opacity shrink-0" />
+                  LinkedIn ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="col-span-12 lg:col-span-8">
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            <InputField label="First Name*" placeholder="John" />
+        <div className="col-span-1 lg:col-span-8">
+          <div className="bg-[#111111]/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            {/* Form background glow */}
+            <div className="absolute top-0 right-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-[#3A6FF7]/10 rounded-full blur-[60px] md:blur-[80px] pointer-events-none"></div>
 
-            <InputField label="Last Name*" placeholder="Doe" />
-
-            <InputField
-              label="Work Email*"
-              placeholder="john@enterprise.com"
-              type="email"
-            />
-
-            <InputField
-              label="Company"
-              placeholder="Organization Name"
-            />
-
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs uppercase tracking-[0.2em] text-[#F5F5F399]">
-                I'm interested in*
-              </label>
-
-              <select className="bg-transparent border-b border-[#47464a] py-4 focus:outline-none focus:border-[#c8c6c8] transition-colors">
-                <option>Select an option</option>
-
-                {options.map((option) => (
-                  <option
-                    key={option}
-                    className="bg-[#141313] text-white"
-                  >
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs uppercase tracking-[0.2em] text-[#F5F5F399]">
-                Message*
-              </label>
-
-              <textarea
-                rows={4}
-                placeholder="Describe environment, challenge, success goals"
-                className="bg-transparent border-b border-[#47464a] py-4 resize-none focus:outline-none focus:border-[#c8c6c8] transition-colors"
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 gap-y-6 md:gap-y-10 relative z-10 w-full max-w-full">
+              <InputField label="First Name *" placeholder="Jane" />
+              <InputField label="Last Name *" placeholder="Smith" />
+              <InputField
+                label="Work Email *"
+                placeholder="jane@company.com"
+                type="email"
               />
-            </div>
+              <InputField
+                label="Company"
+                placeholder="Acme Corp"
+              />
 
-            <div className="md:col-span-2 flex flex-col md:flex-row md:items-center justify-between gap-6 pt-6">
-              <button
-                type="submit"
-                className="bg-white text-black py-6 px-12 text-xs uppercase tracking-[0.2em] hover:opacity-90 transition-opacity"
-              >
-                Send Message
-              </button>
+              <div className="flex flex-col gap-2 sm:gap-3 md:col-span-2 group max-w-full">
+                <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#F5F5F3]/70 group-focus-within:text-[#3A6FF7] transition-colors">
+                  I'm interested in *
+                </label>
+                <div className="relative w-full max-w-full">
+                  <select className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all appearance-none text-white text-sm sm:text-base truncate pr-10">
+                    <option value="" disabled selected>Select a service area</option>
+                    {options.map((option) => (
+                      <option
+                        key={option}
+                        className="bg-[#1a1a1a] text-white"
+                      >
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-[#F5F5F3]/50">
+                    ▼
+                  </div>
+                </div>
+              </div>
 
-              <p className="text-[#F5F5F399] italic">
-                We typically respond within one business day.
-              </p>
-            </div>
-          </form>
+              <div className="flex flex-col gap-2 sm:gap-3 md:col-span-2 group max-w-full">
+                <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#F5F5F3]/70 group-focus-within:text-[#3A6FF7] transition-colors">
+                  Tell us about your challenge *
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Describe your current environment, the challenge you're facing..."
+                  className="w-full max-w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 resize-none focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all text-white placeholder:text-[#F5F5F3]/30 text-sm sm:text-base"
+                />
+              </div>
+
+              <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 pt-2 sm:pt-4">
+                <button
+                  type="submit"
+                  className="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:bg-[#F5F5F3] transition-all transform hover:scale-105 w-full sm:w-auto shrink-0"
+                >
+                  <span>Send Message</span>
+                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <p className="text-[#F5F5F3]/50 text-[11px] sm:text-sm italic text-center sm:text-right mt-2 sm:mt-0">
+                  We typically respond within one business day.
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -122,15 +134,14 @@ function InputField({
   type = "text",
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <label className="text-xs uppercase tracking-[0.2em] text-[#F5F5F399]">
+    <div className="flex flex-col gap-2 sm:gap-3 group max-w-full">
+      <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#F5F5F3]/70 group-focus-within:text-[#3A6FF7] transition-colors">
         {label}
       </label>
-
       <input
         type={type}
         placeholder={placeholder}
-        className="bg-transparent border-b border-[#47464a] py-4 focus:outline-none focus:border-[#c8c6c8] transition-colors placeholder:text-[#353434]"
+        className="w-full max-w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 sm:py-4 focus:outline-none focus:border-[#3A6FF7] focus:ring-1 focus:ring-[#3A6FF7] transition-all placeholder:text-[#F5F5F3]/30 text-white text-sm sm:text-base"
       />
     </div>
   );
