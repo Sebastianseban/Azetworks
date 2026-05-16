@@ -210,8 +210,8 @@ export default function HeroSection() {
                 "
               >
                 Empowering
-                <br className="block md:hidden" /> Business
-                <br className="block" /> Transformation
+                <br /> Business
+                <br /> Transformation
               </h1>
             </div>
 
